@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Friends {
     class Program {
@@ -14,8 +15,31 @@ namespace Friends {
 
             //Console.WriteLine($"{friend1.Name} {friend2.Name} {friend3.Name} {friend4.Name} {friend5.Name}");
 
-            var friends = new Friend[] { friend1, friend2, friend3, friend4, friend5 };
-            foreach(var friend in friends) {
+            var friends = new List<Friend>(); //replaced the fixed array with this list.
+            friends.Add(friend1);
+            friends.Add(friend2);
+            friends.Add(friend3);
+            friends.Add(friend4);
+            friends.Add(friend5);
+
+            var aFriend = friends[0];
+
+            var StateCodes = new Dictionary<string, string>();               //<key type, data type>
+            StateCodes.Add("OH", "Ohio");
+            StateCodes.Add("KY", "Kentucky");
+            StateCodes.Add("IN", "Indiana");
+
+            var ohio = StateCodes["OH"];
+
+            //sorted dictionary has function of a dictionary but keeps the keys in sequence.
+
+            //var friends = new Friend[] { friend1, friend2, friend3, friend4, friend5 };
+
+            //foreach(var friend in friends) {                          //test ternary operator
+            //    friend.HowLong = (friend.BFF) ? 10 : 0;
+            //}
+
+            foreach (var friend in friends) {
                 Console.WriteLine(friend);
             }
 
@@ -23,9 +47,23 @@ namespace Friends {
             foreach(var friend in friends) {
                 totalYrs += friend.HowLong;
             }
-            Console.WriteLine($"The total length of your friendships is {totalYrs} years. Not bad for someone with a computer monitor tan at that level.");
+            Console.WriteLine($"The total length of your friendships is {totalYrs} years. Not bad for someone with that level of computer monitor tan.");
 
             //console.WriteLine is already calling a function ToString when creating strings.
+
+
+            //mess around with generic collections
+
+            //List<int> integers = new List<int>(); //hit tab after typing 'new' to auto complete.
+            //integers.Add(17);
+            //integers.Add(0);
+            //integers.Add(88);
+            //integers.Add(43);
+
+            //var count = integers.Count;
+            //integers.Sort();
+            //integers.Remove(0);
+
         }
     }
 }
